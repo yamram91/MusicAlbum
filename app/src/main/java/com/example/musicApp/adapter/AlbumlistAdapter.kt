@@ -1,5 +1,8 @@
 package com.example.musicApp.adapter
 
+import android.icu.text.SimpleDateFormat
+import android.os.Build
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,11 +10,13 @@ import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.musicApp.R
 import com.example.musicApp.data.Album
+import java.util.*
 
 class AlbumlistAdapter(var context: AppCompatActivity, albumList: List<Album>,type:Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
@@ -28,6 +33,7 @@ class AlbumlistAdapter(var context: AppCompatActivity, albumList: List<Album>,ty
         return RecyclerHolder(rootView)
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val album: Album = albumList[position]
         val viewHolder = holder as RecyclerHolder
@@ -35,7 +41,13 @@ class AlbumlistAdapter(var context: AppCompatActivity, albumList: List<Album>,ty
         viewHolder.textView_aName.text = album.artistName
         viewHolder.textView_cName.text = album.collectionName
         viewHolder.textView_cDate.text = album.collectionPrice.toString()
-        viewHolder.textView_rDate.text = album.releaseDate
+        val dd= album.releaseDate
+        val sdf=SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
+        val sdf1=SimpleDateFormat("dd-MM-yyyy'", Locale.ENGLISH)
+       viewHolder.textView_rDate.text= sdf1.format(sdf.parse(dd))
+
+
+       // viewHolder.textView_rDate.text = album.releaseDate
         if(typeId==1) {
             viewHolder.imagView_checkbox.visibility= View.VISIBLE
             if (album.isChecked == 1)
