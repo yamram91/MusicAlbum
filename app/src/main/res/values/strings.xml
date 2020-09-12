@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MusicApp</string>
+    <string name="error_artistname">Enter the Artist Name</string>
+    <string name="erroe_trackname">Enter the track Name</string>
+    <string name="lbl_trackname">Track Name</string>
+    <string name="lbl_artistname">Artist Name</string>
+    <string name="lbl_collectioname">Collection Name (Optional)</string>
+    <string name="lbl_collectionprice">Collection Price (Optional)</string>
+    <string name="lbl_releasedate">Release date(Optional)</string>
+    <string name="lbl_search">Search</string>
+    <string name="lbl_viewall">View All</string>
+    <string name="lbl_sortby">Sort By</string>
+    <string name="btn_movetocart">Move to Cart</string>
+</resources>

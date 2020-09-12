@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    tools:context=".MainActivity">
+
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_tName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_trackname"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_aName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_artistname"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_tName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_cName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_collectioname"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_aName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_cPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="@string/lbl_collectionprice"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_rDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lbl_releasedate"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:editable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cPrice" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_search"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_search"
+        android:textColor="@color/color_white"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_rDate" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_all"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_viewall"
+        android:textColor="@color/color_white"
+        android:background="@color/colorPrimary"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_search"
+        app:layout_constraintTop_toBottomOf="@id/textView_rDate" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_inrField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="editText_aName,editText_tName,editText_cName,editText_cPrice,btn_all,textView_rDate,btn_search" />
+
+    <TextView
+        android:id="@+id/lbl_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/lbl_sortby"
+        android:textColor="@color/color_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search" />
+
+    <ImageView
+        android:id="@+id/img_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintStart_toEndOf="@id/lbl_sort"
+
+        app:layout_constraintTop_toBottomOf="@id/btn_search" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_movetocart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/btn_movetocart"
+        android:textColor="@color/color_white"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_sort"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_search"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_sortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_movetocart"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rb_cName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collection \nName" />
+
+        <RadioButton
+            android:id="@+id/rb_tName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track \n Name" />
+
+        <RadioButton
+            android:id="@+id/rb_aName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artist\nName" />
+
+        <RadioButton
+            android:id="@+id/rb_cPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collection \nPrice" />
+
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/albumList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup_sortBy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
